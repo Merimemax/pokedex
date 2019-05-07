@@ -13,7 +13,10 @@ export class PokemonListComponent implements OnInit {
   pokemons: Pokemon[];
   keysearch: string;
   category: string;
-  tobesearched: ["Generation","Types"];
+  
+
+  tobesearched = ['Name', 'Generation', 'Types', 'NumberID'];
+  myHero = this.tobesearched[0];
 
   constructor(private pokemonService: PokemonService) { 
    
@@ -28,9 +31,9 @@ export class PokemonListComponent implements OnInit {
     .subscribe(pokemons => this.pokemons = pokemons);
   }
 
-  searching(): void {
+  searching(){
     console.log(this.keysearch)
-    this.pokemons = this.pokemons.filter(p => p[this.keysearch]= this.keysearch)
+    this.pokemons = this.pokemons.filter(p => p[this.category]== this.keysearch)
   }
   setsearchCategory(){
     console.log(this.category)
