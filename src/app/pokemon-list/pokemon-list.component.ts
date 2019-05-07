@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { PokemonService } from '../pokemon.service';
 import { Pokemon } from '../pokemon';
-import { DropdownValue } from '../dropdownvalue';
 
 
 @Component({
@@ -12,7 +11,7 @@ import { DropdownValue } from '../dropdownvalue';
 export class PokemonListComponent implements OnInit {
   pokemons: Pokemon[];
   keysearch: string;
-  category: string;
+  category: any;
   
 
   tobesearched = ['Name', 'Generation', 'Types', 'NumberID'];
@@ -36,6 +35,7 @@ export class PokemonListComponent implements OnInit {
     this.pokemons = this.pokemons.filter(p => p[this.category]== this.keysearch)
   }
   setsearchCategory(){
+    console.log(typeof this.category)
     console.log(this.category)
   }
 

@@ -1,5 +1,6 @@
 <!-- Search form -->
 <select [(ngModel)]="category" (change)="setsearchCategory()">
+    <option value="All" >All</option>
     <option *ngFor="let key of tobesearched" [value]="key">{{key}}</option>
   </select>
 <input [(ngModel)]="keysearch" placeholder="Search.." (change)="searching()"/>
